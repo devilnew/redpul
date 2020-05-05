@@ -1,0 +1,16 @@
+pipeline{
+   agent any
+   stages{
+    stage('chekout'){
+     steps{
+       echo "this for chaking for git code"
+       git 'https://github.com/devilnew/redpul.git'
+}
+
+}
+
+
+
+
+}
+}
