@@ -1,16 +1,39 @@
-pipeline{
+pipeline {
    agent any
-   stages{
-    stage('chekout'){
-     steps{
-       echo "this for chaking for git code"
-       git 'https://github.com/devilnew/redpul.git'
-}
 
-}
+    tools{
+        maven 'M2_HOME'
+       jdk 'JAVA_HOME'
+     }
 
-
-
-
-}
+  stages{
+      
+      stage ('checkout'){
+          
+          steps{
+              
+              git 'https://github.com/kliakos/sparkjava-war-example.git'
+          }
+      }
+      
+      stage ('build'){
+          
+          steps{
+              
+              sh 'mvn clean package'
+          } 
+      }
+      stage ('deploy'){
+          
+          steps{
+              
+              sh '/opt/deploy.sh'
+          } 
+      }
+          stage ('artifact'){
+          
+          steps{
+              
+              archiveArtifacts 'target/*.war'
+ } 
 }
