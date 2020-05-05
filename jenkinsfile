@@ -37,4 +37,5 @@ pipeline{
               archiveArtifacts 'target/*.war'
           } 
           }
+}
 }      
