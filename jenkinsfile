@@ -1,4 +1,4 @@
-pipeline {
+pipeline{
    agent any
 
     tools{
@@ -35,5 +35,6 @@ pipeline {
           steps{
               
               archiveArtifacts 'target/*.war'
- } 
-}
+          } 
+          }
+}      
